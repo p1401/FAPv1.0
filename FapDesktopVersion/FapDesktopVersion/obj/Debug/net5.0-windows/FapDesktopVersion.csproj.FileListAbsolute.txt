@@ -68,4 +68,7 @@ D:\Github\FAPv1.0_PRN211\FapDesktopVersion\FapDesktopVersion\bin\Debug\net5.0-wi
 D:\Github\FAPv1.0_PRN211\FapDesktopVersion\FapDesktopVersion\bin\Debug\net5.0-windows\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.pdb
 D:\Github\FAPv1.0_PRN211\FapDesktopVersion\FapDesktopVersion\bin\Debug\net5.0-windows\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
 D:\Github\FAPv1.0_PRN211\FapDesktopVersion\FapDesktopVersion\bin\Debug\net5.0-windows\appsettings.json
-D:\Github\FAPv1.0_PRN211\FapDesktopVersion\FapDesktopVersion\obj\Debug\net5.0-windows\FapDesktopVersion.LoginGUI.resources
+D:\Github\FAPv1.0_PRN211\FapDesktopVersion\FapDesktopVersion\obj\Debug\net5.0-windows\FapDesktopVersion.csproj.AssemblyReference.cache
+D:\Github\FAPv1.0_PRN211\FapDesktopVersion\FapDesktopVersion\obj\Debug\net5.0-windows\FapDesktopVersion.GUI.TimetableGUI.resources
+D:\Github\FAPv1.0_PRN211\FapDesktopVersion\FapDesktopVersion\obj\Debug\net5.0-windows\FapDesktopVersion.Properties.Resources.resources
+D:\Github\FAPv1.0_PRN211\FapDesktopVersion\FapDesktopVersion\obj\Debug\net5.0-windows\FapDesktopVersion.GUI.StartGUI.resources
