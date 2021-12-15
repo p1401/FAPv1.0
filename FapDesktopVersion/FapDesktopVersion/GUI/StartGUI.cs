@@ -22,24 +22,24 @@ namespace FapDesktopVersion.GUI
         {
             AP2Context context = new AP2Context();
             List<Student> listStudents = context.Students.ToList();
-            int id = Convert.ToInt32(txtID.Text.Trim());
             string roll = txtRoll.Text.Trim();
             Boolean check = false;
 
             foreach (Student student in listStudents)
             {
-                if (student.StudentId.Equals(id) && student.Roll.Equals(roll))
+                if (student.Roll.Equals(roll))
                 {
                     MessageBox.Show("Open successfully!");
-                    TimetableGUI timetable = new TimetableGUI(student);
-                    timetable.Show();
                     this.Hide();
+                    TimetableGUI timetable = new TimetableGUI(student);
+                    timetable.ShowDialog();
+                    this.Close();
                     check = true;
                 }
             }
             if (check == false)
             {
-                MessageBox.Show("Student ID or Roll number is incorrect!");
+                MessageBox.Show("Roll number is incorrect!");
             }
         }
     }
