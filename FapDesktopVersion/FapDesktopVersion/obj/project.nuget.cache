@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "Fn4ZZ0VVj2WfDVuOgYDsXQD8COIAHwW4N4PLLz4Or090qbj2Uw3X95We4p3nAE2u3e1oKFGgG5pGrEDzzuA4uw==",
+  "dgSpecHash": "A4hPA3OJhC+d8fRvoSS5MaP9Xx4hKaGuV+mwdd5qTbP29OSf7ow9klsEH3sXn8f646ieazrlLuOTkdUpGWYanA==",
   "success": true,
   "projectFilePath": "D:\\Github\\FAPv1.0_PRN211\\FapDesktopVersion\\FapDesktopVersion\\FapDesktopVersion.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Phuc Nguyen\\.nuget\\packages\\entityframework\\6.4.4\\entityframework.6.4.4.nupkg.sha512",
     "C:\\Users\\Phuc Nguyen\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Phuc Nguyen\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\Phuc Nguyen\\.nuget\\packages\\microsoft.data.sqlclient\\2.0.1\\microsoft.data.sqlclient.2.0.1.nupkg.sha512",
@@ -45,6 +46,7 @@
     "C:\\Users\\Phuc Nguyen\\.nuget\\packages\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
     "C:\\Users\\Phuc Nguyen\\.nuget\\packages\\runtime.win-x64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-x64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
     "C:\\Users\\Phuc Nguyen\\.nuget\\packages\\runtime.win-x86.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-x86.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
+    "C:\\Users\\Phuc Nguyen\\.nuget\\packages\\system.codedom\\4.7.0\\system.codedom.4.7.0.nupkg.sha512",
     "C:\\Users\\Phuc Nguyen\\.nuget\\packages\\system.collections\\4.3.0\\system.collections.4.3.0.nupkg.sha512",
     "C:\\Users\\Phuc Nguyen\\.nuget\\packages\\system.collections.concurrent\\4.3.0\\system.collections.concurrent.4.3.0.nupkg.sha512",
     "C:\\Users\\Phuc Nguyen\\.nuget\\packages\\system.collections.immutable\\5.0.0\\system.collections.immutable.5.0.0.nupkg.sha512",

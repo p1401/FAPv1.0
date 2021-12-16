@@ -21,5 +21,6 @@ namespace FapDesktopVersion.Models
         public virtual Department Department { get; set; }
         public virtual ICollection<Course> Courses { get; set; }
         public virtual ICollection<Gradetitle> Gradetitles { get; set; }
+
     }
 }

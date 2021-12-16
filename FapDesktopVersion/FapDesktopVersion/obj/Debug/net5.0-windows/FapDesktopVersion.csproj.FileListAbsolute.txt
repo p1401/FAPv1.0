@@ -72,3 +72,5 @@ D:\Github\FAPv1.0_PRN211\FapDesktopVersion\FapDesktopVersion\obj\Debug\net5.0-wi
 D:\Github\FAPv1.0_PRN211\FapDesktopVersion\FapDesktopVersion\obj\Debug\net5.0-windows\FapDesktopVersion.GUI.TimetableGUI.resources
 D:\Github\FAPv1.0_PRN211\FapDesktopVersion\FapDesktopVersion\obj\Debug\net5.0-windows\FapDesktopVersion.Properties.Resources.resources
 D:\Github\FAPv1.0_PRN211\FapDesktopVersion\FapDesktopVersion\obj\Debug\net5.0-windows\FapDesktopVersion.GUI.StartGUI.resources
+D:\Github\FAPv1.0_PRN211\FapDesktopVersion\FapDesktopVersion\bin\Debug\net5.0-windows\EntityFramework.SqlServer.dll
+D:\Github\FAPv1.0_PRN211\FapDesktopVersion\FapDesktopVersion\bin\Debug\net5.0-windows\EntityFramework.dll

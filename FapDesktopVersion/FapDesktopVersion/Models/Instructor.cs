@@ -12,6 +12,13 @@ namespace FapDesktopVersion.Models
             Courses = new HashSet<Course>();
         }
 
+        public Instructor(string instructorFirstName, string instructorLastName, string instructorMidName)
+        {
+            InstructorFirstName = instructorFirstName;
+            InstructorLastName = instructorLastName;
+            InstructorMidName = instructorMidName;
+        }
+
         public int InstructorId { get; set; }
         public string InstructorFirstName { get; set; }
         public string InstructorMidName { get; set; }

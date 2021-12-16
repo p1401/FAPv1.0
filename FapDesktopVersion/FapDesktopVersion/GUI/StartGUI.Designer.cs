@@ -70,6 +70,8 @@ namespace FapDesktopVersion.GUI
             this.Controls.Add(this.button1);
             this.Controls.Add(this.txtRoll);
             this.Controls.Add(this.label2);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "StartGUI";
             this.Text = "Start";
             this.ResumeLayout(false);
