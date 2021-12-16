@@ -63,7 +63,7 @@ namespace FapDesktopVersion.GUI
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.DeepSkyBlue;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DeepSkyBlue;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
@@ -72,17 +72,15 @@ namespace FapDesktopVersion.GUI
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridView1.Enabled = false;
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.GridColor = System.Drawing.Color.White;
-            this.dataGridView1.Location = new System.Drawing.Point(485, 302);
+            this.dataGridView1.Location = new System.Drawing.Point(485, 264);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -98,6 +96,8 @@ namespace FapDesktopVersion.GUI
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(844, 637);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
+            this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
             // 
             // panel1
             // 
@@ -166,7 +166,7 @@ namespace FapDesktopVersion.GUI
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label12.Location = new System.Drawing.Point(34, 118);
+            this.label12.Location = new System.Drawing.Point(34, 109);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(291, 41);
             this.label12.TabIndex = 15;
@@ -176,7 +176,7 @@ namespace FapDesktopVersion.GUI
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label13.Location = new System.Drawing.Point(34, 215);
+            this.label13.Location = new System.Drawing.Point(34, 177);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(435, 31);
             this.label13.TabIndex = 16;
@@ -186,7 +186,7 @@ namespace FapDesktopVersion.GUI
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label14.Location = new System.Drawing.Point(856, 215);
+            this.label14.Location = new System.Drawing.Point(856, 177);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(190, 31);
             this.label14.TabIndex = 17;
@@ -195,7 +195,7 @@ namespace FapDesktopVersion.GUI
             // label3
             // 
             this.label3.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.label3.Location = new System.Drawing.Point(0, 269);
+            this.label3.Location = new System.Drawing.Point(0, 231);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(110, 28);
             this.label3.TabIndex = 20;
@@ -205,7 +205,7 @@ namespace FapDesktopVersion.GUI
             // label5
             // 
             this.label5.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.label5.Location = new System.Drawing.Point(112, 269);
+            this.label5.Location = new System.Drawing.Point(112, 231);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(110, 28);
             this.label5.TabIndex = 21;
@@ -215,7 +215,7 @@ namespace FapDesktopVersion.GUI
             // label6
             // 
             this.label6.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.label6.Location = new System.Drawing.Point(224, 269);
+            this.label6.Location = new System.Drawing.Point(224, 231);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(260, 28);
             this.label6.TabIndex = 22;
@@ -227,7 +227,7 @@ namespace FapDesktopVersion.GUI
             this.listBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.listBox1.FormattingEnabled = true;
             this.listBox1.ItemHeight = 20;
-            this.listBox1.Location = new System.Drawing.Point(0, 298);
+            this.listBox1.Location = new System.Drawing.Point(0, 260);
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(110, 420);
             this.listBox1.TabIndex = 23;
@@ -237,7 +237,7 @@ namespace FapDesktopVersion.GUI
             this.listBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.listBox2.FormattingEnabled = true;
             this.listBox2.ItemHeight = 20;
-            this.listBox2.Location = new System.Drawing.Point(112, 298);
+            this.listBox2.Location = new System.Drawing.Point(112, 260);
             this.listBox2.Name = "listBox2";
             this.listBox2.Size = new System.Drawing.Size(110, 420);
             this.listBox2.TabIndex = 24;
@@ -248,7 +248,7 @@ namespace FapDesktopVersion.GUI
             this.listBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.listBox3.FormattingEnabled = true;
             this.listBox3.ItemHeight = 20;
-            this.listBox3.Location = new System.Drawing.Point(224, 298);
+            this.listBox3.Location = new System.Drawing.Point(224, 260);
             this.listBox3.Name = "listBox3";
             this.listBox3.Size = new System.Drawing.Size(260, 420);
             this.listBox3.TabIndex = 25;
@@ -257,7 +257,7 @@ namespace FapDesktopVersion.GUI
             // label7
             // 
             this.label7.BackColor = System.Drawing.Color.Azure;
-            this.label7.Location = new System.Drawing.Point(485, 942);
+            this.label7.Location = new System.Drawing.Point(485, 904);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(844, 10);
             this.label7.TabIndex = 26;
@@ -266,7 +266,7 @@ namespace FapDesktopVersion.GUI
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label8.Location = new System.Drawing.Point(485, 952);
+            this.label8.Location = new System.Drawing.Point(485, 914);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(89, 28);
             this.label8.TabIndex = 27;
@@ -277,7 +277,7 @@ namespace FapDesktopVersion.GUI
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1329, 1009);
+            this.ClientSize = new System.Drawing.Size(1329, 963);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.listBox3);

@@ -40,6 +40,7 @@ namespace FapDesktopVersion.GUI
             label2.Text = "CAMPUS: " + listBox1.SelectedItem.ToString();
             label12.Text = $"View attendance for {GetLoginCode()} ({fullName})";
             label4.Text = GetLoginCode().ToLower();
+            label8.Text = "ABSENT: 0% ABSENT SO FAR (0 ABSENT ON 0 TOTAL).";
         }
 
         private void LoadDataForDGV()
@@ -47,37 +48,35 @@ namespace FapDesktopVersion.GUI
             using (AP2Context context = new AP2Context())
             {
                 var list = (from c in context.Courses
-                            join s in context.Subjects on c.SubjectId equals s.SubjectId
+                            join su in context.Subjects on c.SubjectId equals su.SubjectId
                             join i in context.Instructors on c.InstructorId equals i.InstructorId
                             join cs in context.CourseSchedules on c.CourseId equals cs.CourseId
                             join rcb in context.RollCallBooks on cs.TeachingScheduleId equals rcb.TeachingScheduleId
+                            join st in context.Students on rcb.StudentId equals st.StudentId
                             join r in context.Rooms on cs.RoomId equals r.RoomId
-                            where rcb.StudentId == student.StudentId
+                            where st.StudentId == student.StudentId
+                            let lect = (i.InstructorMidName != null ?
+                            RemoveUnicode(i.InstructorFirstName) + RemoveUnicode(i.InstructorLastName).Substring(0, 1) + RemoveUnicode(i.InstructorMidName).Substring(0, 1) :
+                            RemoveUnicode(i.InstructorFirstName) + RemoveUnicode(i.InstructorLastName).Substring(0, 1))
                             select new
                             {
                                 DATE = cs.TeachingDate,
                                 SLOT = cs.Slot,
                                 ROOM = r.RoomCode,
-                                LECTURER = RemoveUnicode(i.InstructorFirstName),
-                                GROUP_NAME = s.SubjectCode,
+                                LECTURER = lect,
+                                GROUP_NAME = su.SubjectCode,
                                 ATTEDANCE = ChangeStatus(rcb.isAbsent)
                             }).OrderBy(x => x.DATE).ToList();
 
-                /*List<string> lec = (from sc in context.StudentCourses
-                                  join s in context.Students on sc.StudentId equals s.StudentId
-                                  join c in context.Courses on sc.CourseId equals c.CourseId
-                                  join i in context.Instructors on c.InstructorId equals i.InstructorId
-                                  where s.StudentId == student.StudentId
-                                  select new
-                                  {
-                                      i.InstructorFirstName,
-                                      i.InstructorLastName,
-                                      i.InstructorMidName
-                                  }).Select(x => x.InstructorMidName != null ? 
-                                  $"{RemoveUnicode(x.InstructorFirstName)} {RemoveUnicode(x.InstructorLastName).Substring(0, 1)} {RemoveUnicode(x.InstructorMidName).Substring(0, 1)}" :
-                                  $"{RemoveUnicode(x.InstructorFirstName)} {RemoveUnicode(x.InstructorLastName).Substring(0, 1)}").ToList();*/
-
                 dataGridView1.DataSource = list;
+
+                /*DataTable dt = new DataTable();
+                dt.Columns.Add("NO", typeof(int));
+                int idx = 1;
+                foreach (DataRow row in dataGridView1.Rows)
+                    row["NO"] = idx++;
+                dt.Columns.Add(new DataColumn[2] { new DataColumn("NO"), list });*/
+                CountAbsent();
             }
         }
 
@@ -106,6 +105,18 @@ namespace FapDesktopVersion.GUI
             return text;
         }
 
+        public DataTable HeaderTable()
+        {
+            DataTable table = new DataTable();
+            table.Columns.Add("DATE");
+            table.Columns.Add("SLOT");
+            table.Columns.Add("ROOM");
+            table.Columns.Add("LECTURER");
+            table.Columns.Add("GROUP_NAME");
+            table.Columns.Add("ATTEDANCE");
+            return table;
+        }
+
         public string GetLoginCode()
         {
             string mid = student.MidName;
@@ -119,29 +130,16 @@ namespace FapDesktopVersion.GUI
             }
         }
 
-        /*public List<string> DataHeader()
-        {
-            DataRelation data;
-            data = data.
-        }*/
-
         public static string ChangeStatus(bool isAbsent)
         {
-            TimetableGUI gui = new TimetableGUI();
-            DataGridView dataGridView = gui.dataGridView1;
-            string status = null;
-            foreach (DataGridViewRow row in dataGridView.Rows)
+            string status;
+            if (isAbsent == true)
             {
-                if (isAbsent == true)
-                {
-                    row.Cells["ATTEDANCE"].Style.ForeColor = Color.Red;
-                    status = "Absent";
-                }
-                else
-                {
-                    row.Cells["ATTEDANCE"].Style.ForeColor = Color.Green;
-                    status = "Present";
-                }
+                status = "Absent";
+            }
+            else
+            {
+                status = "Present";
             }
             return status;
         }
@@ -227,7 +225,10 @@ namespace FapDesktopVersion.GUI
         {
             if(GetSubjectByTerm().Count == 0)
             {
-                dataGridView1.DataSource = null;
+                if (listBox3.Items.Count > 0) listBox3.DataSource = null;
+                dataGridView1.Columns.Clear();
+                dataGridView1.DataSource = HeaderTable();
+                label8.Text = "ABSENT: 0% ABSENT SO FAR (0 ABSENT ON 0 TOTAL).";
             }
             else
             {
@@ -241,5 +242,36 @@ namespace FapDesktopVersion.GUI
             LoadDataForDGV();
         }
 
+        public void CountAbsent()
+        {
+            int total = dataGridView1.Rows.Count;
+            int absent = dataGridView1.Rows.Cast<DataGridViewRow>().Where(row => row.Cells["ATTEDANCE"].Value.ToString() == "Absent").Count();
+            int percent = (int)Math.Round((double)(100 * absent) / total);
+
+            label8.Text = $"ABSENT: {percent}% ABSENT SO FAR ({absent} ABSENT ON {total} TOTAL).";
+        }
+
+        private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                if (row.Cells["ATTEDANCE"].Value != null)
+                {
+                    if (row.Cells["ATTEDANCE"].Value.ToString() == "Absent")
+                    {
+                        row.Cells["ATTEDANCE"].Style.ForeColor = Color.Red;
+                    }
+                    else if (row.Cells["ATTEDANCE"].Value.ToString() == "Present")
+                    {
+                        row.Cells["ATTEDANCE"].Style.ForeColor = Color.Green;
+                    }
+                }
+            }
+        }
+
+        private void dataGridView1_SelectionChanged(object sender, EventArgs e)
+        {
+            dataGridView1.ClearSelection();
+        }
     }
 }
