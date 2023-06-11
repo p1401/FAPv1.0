@@ -1,32 +1,32 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Github\\FAPv1.0_PRN211\\FapDesktopVersion\\FapDesktopVersion\\FapDesktopVersion.csproj": {}
+    "D:\\Git\\p1401\\FAPv1.0_PRN211\\FapDesktopVersion\\FapDesktopVersion\\FapDesktopVersion.csproj": {}
   },
   "projects": {
-    "D:\\Github\\FAPv1.0_PRN211\\FapDesktopVersion\\FapDesktopVersion\\FapDesktopVersion.csproj": {
+    "D:\\Git\\p1401\\FAPv1.0_PRN211\\FapDesktopVersion\\FapDesktopVersion\\FapDesktopVersion.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Github\\FAPv1.0_PRN211\\FapDesktopVersion\\FapDesktopVersion\\FapDesktopVersion.csproj",
+        "projectUniqueName": "D:\\Git\\p1401\\FAPv1.0_PRN211\\FapDesktopVersion\\FapDesktopVersion\\FapDesktopVersion.csproj",
         "projectName": "FapDesktopVersion",
-        "projectPath": "D:\\Github\\FAPv1.0_PRN211\\FapDesktopVersion\\FapDesktopVersion\\FapDesktopVersion.csproj",
+        "projectPath": "D:\\Git\\p1401\\FAPv1.0_PRN211\\FapDesktopVersion\\FapDesktopVersion\\FapDesktopVersion.csproj",
         "packagesPath": "C:\\Users\\Phuc Nguyen\\.nuget\\packages\\",
-        "outputPath": "D:\\Github\\FAPv1.0_PRN211\\FapDesktopVersion\\FapDesktopVersion\\obj\\",
+        "outputPath": "D:\\Git\\p1401\\FAPv1.0_PRN211\\FapDesktopVersion\\FapDesktopVersion\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Phuc Nguyen\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net5.0-windows7.0"
+          "net6.0-windows"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net5.0-windows7.0": {
-            "targetAlias": "net5.0-windows",
+          "net6.0-windows7.0": {
+            "targetAlias": "net6.0-windows",
             "projectReferences": {}
           }
         },
@@ -37,8 +37,8 @@
         }
       },
       "frameworks": {
-        "net5.0-windows7.0": {
-          "targetAlias": "net5.0-windows",
+        "net6.0-windows7.0": {
+          "targetAlias": "net6.0-windows",
           "dependencies": {
             "EntityFramework": {
               "target": "Package",
@@ -69,7 +69,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -81,7 +82,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     }
